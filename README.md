@@ -58,13 +58,11 @@ function onClick(e) {
 
 6. We’re NEVER using HTML tags style declaration and/or nesting.
 ```
-
-
 .item {
 //NO!
-  p {
-  color: red
-  }
+    p {
+    color: red
+    }
 }
 ```
 
