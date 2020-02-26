@@ -35,6 +35,7 @@ if (loggedIn) {
 ```
 
 We’re using “on” prefix for handlers defined in the function and “handle” prefix for handlers passed via props. onTouchStart vs props.handleTouchStart, to distinguish between own handlers and parent handlers.
+
 ```
 function onClick(e) {
   props.handleClick();
@@ -46,6 +47,16 @@ function onClick(e) {
 <div onClick={handleClick}/>
 ```
 
-We’re NEVER using HTML tags style declaration and/or nesting. no p {color: red}.
+We’re NEVER using HTML tags style declaration and/or nesting.
+```
+
+
+.item {
+//NO!
+  p {
+  color: red
+  }
+}
+```
 
 We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
