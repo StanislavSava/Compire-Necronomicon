@@ -1,7 +1,7 @@
 # Compire-Necronomicon
-We're using yarn as a package manager.
+1. We're using yarn as a package manager.
 
-We’re NEVER using index as a key for a mapped component!
+2. We’re NEVER using index as a key for a mapped component!
 ```
 const array = [{id: 1}, {id:2}];
 
@@ -12,7 +12,7 @@ const renderedItems = array.map((item, idx) => <Item key={idx}/>);
 const renderedItems = array.map(item => <Item key={item.id}/>);
 ```
 
-We're using "for of" instead of ".forEach" whenever possible. We'll replace ".map" with "for of" only when there are performance reasons for this.
+3. We're using "for of" instead of ".forEach" whenever possible. We'll replace ".map" with "for of" only when there are performance reasons for this.
 ```
 const array = [1, 2, 3];
 
@@ -25,7 +25,7 @@ for (const item of array) {
 }
 ```
 
-We’re using function declaration for handlers, const declarations for immutable variables and let declaration for mutable variables.
+4. We’re using function declaration for handlers, const declarations for immutable variables and let declaration for mutable variables.
 ```
 //handler
 function onClick(e) {
@@ -43,7 +43,7 @@ if (loggedIn) {
 }
 ```
 
-We’re using “on” prefix for handlers defined in the function and “handle” prefix for handlers passed via props. onTouchStart vs props.handleTouchStart, to distinguish between own handlers and parent handlers.
+5. We’re using “on” prefix for handlers defined in the function and “handle” prefix for handlers passed via props. onTouchStart vs props.handleTouchStart, to distinguish between own handlers and parent handlers.
 
 ```
 function onClick(e) {
@@ -56,7 +56,7 @@ function onClick(e) {
 <div onClick={handleClick}/>
 ```
 
-We’re NEVER using HTML tags style declaration and/or nesting.
+6. We’re NEVER using HTML tags style declaration and/or nesting.
 ```
 
 
@@ -68,4 +68,4 @@ We’re NEVER using HTML tags style declaration and/or nesting.
 }
 ```
 
-We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
+7. We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
