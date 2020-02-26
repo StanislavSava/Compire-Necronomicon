@@ -4,6 +4,17 @@ We're using yarn as a package manager.
 We’re NEVER using index as a key for a mapped component!
 
 We're using "for of" instead of ".forEach" whenever possible. We'll replace ".map" with "for of" only when there are performance reasons for this.
+```
+const array = [1, 2, 3];
+
+//do
+for (const item of array) {
+  console.log(item);
+}
+
+//don't 
+array.forEach(item => console.log(item))
+```
 
 We’re using function declaration for handlers, const declarations for immutable variables and let declaration for mutable variables.
 
