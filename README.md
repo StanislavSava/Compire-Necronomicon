@@ -17,6 +17,22 @@ array.forEach(item => console.log(item))
 ```
 
 We’re using function declaration for handlers, const declarations for immutable variables and let declaration for mutable variables.
+```
+//handler
+function onClick(e) {
+  e.preventDefault();
+}
+
+// immutable
+const isLoggedIn = userInfo != null;
+
+//mutated later
+let buttonText = 'sign in';
+
+if (loggedIn) {
+  buttonText = 'sign out';
+}
+```
 
 We’re using “on” prefix for handlers defined in the function and “handle” prefix for handlers passed via props. onTouchStart vs props.handleTouchStart, to distinguish between own handlers and parent handlers.
 
