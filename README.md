@@ -11,4 +11,4 @@ We’re using “on” prefix for handlers defined in the function and “handle
 
 We’re NEVER using HTML tags style declaration and/or nesting. no p {color: red}.
 
-We’re using feature || fix || redesign/task number-2-3 words describing the branch e.g. feature/MD-666-fix-Satan-called-twice
+We’re using a system for branch naming: feature || fix || redesign/task number-2-3 words describing the branch e.g. feature/MD-666-fix-Satan-called-twice
