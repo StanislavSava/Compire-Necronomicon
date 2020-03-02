@@ -72,7 +72,9 @@ function onClick(e) {
 
 9. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
 
-10. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
+10. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
+
+11. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
 ```
 //selectors
 const email = useSelector(state => state.name);
@@ -81,4 +83,5 @@ const [name, setName] = useState('');
 //effects
 useEffect(() => {});
 ```
+
 
