@@ -73,11 +73,12 @@ function onClick(e) {
 9. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
 
 10. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
-
+```
 //selectors
 const email = useSelector(state => state.name);
 //state
 const [name, setName] = useState('');
 //effects
 useEffect(() => {});
+```
 
