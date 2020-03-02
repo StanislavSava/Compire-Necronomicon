@@ -67,3 +67,17 @@ function onClick(e) {
 ```
 
 7. We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
+
+8. We're using functional components for almost all new components, no classes, except when strictly necessary for performance reasons (keeping method references equal during rerenders).
+
+9. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
+
+10. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
+
+//selectors
+const email = useSelector(state => state.name);
+//state
+const [name, setName] = useState('');
+//effects
+useEffect(() => {});
+
