@@ -25,7 +25,7 @@ for (const item of array) {
 }
 ```
 
-4. We’re using function declaration for handlers, const declarations for immutable variables and let declaration for mutable variables.
+4. We’re using function declaration for functions, const declarations for immutable variables and let declaration for mutable variables.
 ```
 //handler
 function onClick(e) {
