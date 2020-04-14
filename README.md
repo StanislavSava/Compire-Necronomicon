@@ -43,17 +43,17 @@ if (loggedIn) {
 }
 ```
 
-5. We’re using “on” prefix for handlers defined in the function and “handle” prefix for handlers passed via props. onTouchStart vs props.handleTouchStart, to distinguish between own handlers and parent handlers.
+5. We’re using “handle” prefix for handlers defined in the function and “on” prefix for handlers passed via props. handleTouchStart vs props.onTouchStart, to distinguish between own handlers and parent handlers.
 
 ```
-function onClick(e) {
-  props.handleClick();
+function handleClick(e) {
+  props.onClickClick();
 }
 
-<div onClick={onClick}/>
+<div onClick={handleClick}/>
 
 //destructured before, instantly known to be from parent
-<div onClick={handleClick}/>
+<div onClick={onClick}/>
 ```
 
 6. We’re NEVER using HTML tags style declaration and/or nesting.
