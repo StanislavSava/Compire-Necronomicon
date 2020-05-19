@@ -84,4 +84,18 @@ const [name, setName] = useState('');
 useEffect(() => {});
 ```
 
+12. We import lodash specific functions instead of the whole library for the tree shaking to take effect.
+```
+//DON'T
+import _ from 'lodash';
+//this also doesn't shake that tree, unfortunately. You can find more info on webpack website about tree shaking.
+import {cloneDeep, isEmpty} from 'lodash';
+
+//DO
+import cloneDeep from 'lodash/cloneDeep';
+import isEmpty from 'lodash/isEmpty';
+import last from 'lodash/last';
+import uniqBy from 'lodash/uniqBy';
+import get from 'lodash/get';
+```
 
