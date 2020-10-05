@@ -99,3 +99,25 @@ import uniqBy from 'lodash/uniqBy';
 import get from 'lodash/get';
 ```
 
+12. We use != / == null verifications for all variables, and !<variable> for booleans only.
+
+```
+//DON'T
+
+const user = userSelector(state);
+if (!user){
+//do something
+  if (!refetchAttempted){
+    //refetch
+    }
+} 
+
+//DO 
+const user = userSelector(state);
+if (user == null){
+//do something
+  if (!refetchAttempted){
+    //refetch
+    }
+} 
+```
