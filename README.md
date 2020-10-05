@@ -99,7 +99,7 @@ import uniqBy from 'lodash/uniqBy';
 import get from 'lodash/get';
 ```
 
-12. We use != / == null verifications for all variables, and !<variable> for booleans only.
+13. We use != / == null verifications for all variables, and !<variable> for booleans only.
 
 ```
 //DON'T
