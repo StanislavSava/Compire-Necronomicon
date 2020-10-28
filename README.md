@@ -56,25 +56,15 @@ function handleClick(e) {
 <div onClick={onClick}/>
 ```
 
-6. We’re NEVER using HTML tags style declaration and/or nesting.
-```
-.item {
-//NO!
-    p {
-    color: red
-    }
-}
-```
+6. We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
 
-7. We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
+7. We're using functional components for almost all new components, no classes, except when strictly necessary for performance reasons (keeping method references equal during rerenders).
 
-8. We're using functional components for almost all new components, no classes, except when strictly necessary for performance reasons (keeping method references equal during rerenders).
+8. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
 
-9. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
+9. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
 
-10. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
-
-11. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
+10. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
 ```
 //selectors
 const email = useSelector(state => state.name);
@@ -84,7 +74,7 @@ const [name, setName] = useState('');
 useEffect(() => {});
 ```
 
-12. We import lodash specific functions instead of the whole library for the tree shaking to take effect.
+11. We import lodash specific functions instead of the whole library for the tree shaking to take effect.
 ```
 //DON'T
 import _ from 'lodash';
@@ -99,7 +89,7 @@ import uniqBy from 'lodash/uniqBy';
 import get from 'lodash/get';
 ```
 
-13. We use != / == null verifications for all variables, and !<variable> for booleans only.
+12. We use != / == null verifications for all variables, and !<variable> for booleans only.
 
 ```
 //DON'T
