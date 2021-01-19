@@ -1,7 +1,7 @@
 # Compire-Necronomicon
 1. We're using yarn as a package manager.
 
-2. We’re NEVER using index as a key for a mapped component!
+2. We try to avoid using index as a key for a mapped component!
 ```
 const array = [{id: 1}, {id:2}];
 
@@ -64,17 +64,7 @@ function handleClick(e) {
 
 9. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
 
-10. Given that there is a lot of stuff at the start of a functional component, use comments to split the code into logical bits.
-```
-//selectors
-const email = useSelector(state => state.name);
-//state
-const [name, setName] = useState('');
-//effects
-useEffect(() => {});
-```
-
-11. We import lodash specific functions instead of the whole library for the tree shaking to take effect.
+110 We import lodash specific functions instead of the whole library for the tree shaking to take effect.
 ```
 //DON'T
 import _ from 'lodash';
@@ -89,7 +79,7 @@ import uniqBy from 'lodash/uniqBy';
 import get from 'lodash/get';
 ```
 
-12. We use != / == null verifications for all variables, and !<variable> for booleans only.
+11. We use != / == null verifications for all variables, and !<variable> for booleans only.
 
 ```
 //DON'T
