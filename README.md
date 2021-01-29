@@ -64,7 +64,7 @@ function handleClick(e) {
 
 9. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
 
-110 We import lodash specific functions instead of the whole library for the tree shaking to take effect.
+10 We import lodash specific functions instead of the whole library for the tree shaking to take effect.
 ```
 //DON'T
 import _ from 'lodash';
