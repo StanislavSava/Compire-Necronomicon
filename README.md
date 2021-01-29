@@ -101,8 +101,14 @@ if (user == null){
     }
 } 
 
+```
+
 12. For folder and file naming we're using the following convention:
 camelCase for all folders and files, except when it's a React Component, in which case we're using PascalCase.
 Also, for components' and containers' subcomponents, we create separate folders, even if there is no style file present.
 Each folder that has an exportable file/component will have an index file for ease of import.
+
+13. Before submitting a PR, be sure to rebase from the target branch
+```
+git rebase develop
 ```
