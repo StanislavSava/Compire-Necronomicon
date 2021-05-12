@@ -1,7 +1,7 @@
 # Compire-Necronomicon
 1. We're using yarn as a package manager.
 
-2. We try to avoid using index as a key for a mapped component!
+2. We try to avoid using index as a key for a mapped component, This will re-render the whole list when one item is added or removed.
 ```
 const array = [{id: 1}, {id:2}];
 
@@ -12,7 +12,7 @@ const renderedItems = array.map((item, idx) => <Item key={idx}/>);
 const renderedItems = array.map(item => <Item key={item.id}/>);
 ```
 
-3. We're using "for of" instead of ".forEach" whenever possible. We'll replace ".map" with "for of" only when there are performance reasons for this.
+3. We're using "for of" instead of ".forEach" whenever possible. No need to replace ".map" with "for of" because this is adds extra code. We'll only replace map with for of when there are big performance reasons for this.
 ```
 const array = [1, 2, 3];
 
@@ -25,25 +25,8 @@ for (const item of array) {
 }
 ```
 
-4. We’re using, const declarations for immutable variables and functions and let declaration for mutable variables.
-```
-//handler
-const onClick = e => {
-  e.preventDefault();
-}
 
-// immutable
-const isLoggedIn = userInfo != null;
-
-//mutated later
-let buttonText = 'sign in';
-
-if (loggedIn) {
-  buttonText = 'sign out';
-}
-```
-
-5. We’re using “handle” prefix for handlers defined in the function and “on” prefix for handlers passed via props. handleTouchStart vs props.onTouchStart, to distinguish between own handlers and parent handlers.
+4. We’re using “handle” prefix for handlers defined in the function and “on” prefix for handlers passed via props. handleTouchStart vs props.onTouchStart, to distinguish between own handlers and parent handlers.
 
 ```
 function handleClick(e) {
@@ -56,15 +39,15 @@ function handleClick(e) {
 <div onClick={onClick}/>
 ```
 
-6. We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
+5. We’re using a system for branch naming: [feature || fix || redesign]/[task number]-[2-3 words describing the branch] e.g. feature/MD-666-fix-Satan-called-twice
 
-7. We're using functional components for almost all new components, no classes, except when strictly necessary for performance reasons (keeping method references equal during rerenders).
+6. We're using functional components for almost all new components, no classes, except when strictly necessary.
 
-8. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
+7. We use useSelector and useDispatch hooks to connect to redux store via react-redux. No mapStateToProps in functional components.
 
-9. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
+8. We use reselect for memoizing complex state variables and composing those into optimized selectors that don't rerender the whole tree when the values don't change. This package needs to be added only when there is a performance bottleneck, either existing or expected.
 
-10 We import lodash specific functions instead of the whole library for the tree shaking to take effect.
+9 We import lodash specific functions instead of the whole library for the tree shaking to take effect.
 ```
 //DON'T
 import _ from 'lodash';
@@ -79,7 +62,7 @@ import uniqBy from 'lodash/uniqBy';
 import get from 'lodash/get';
 ```
 
-11. We use != / == null verifications for all variables, and !<variable> for booleans only.
+10. We use != / == null verifications for all variables, and !<variable> for booleans only.
 
 ```
 //DON'T
@@ -103,12 +86,22 @@ if (user == null){
 
 ```
 
-12. For folder and file naming we're using the following convention:
+11. For folder and file naming we're using the following convention:
 camelCase for all folders and files, except when it's a React Component, in which case we're using PascalCase.
 Also, for components' and containers' subcomponents, we create separate folders, even if there is no style file present.
 Each folder that has an exportable file/component will have an index file for ease of import.
 
-13. Before submitting a PR, be sure to rebase from the target branch
+12. When using a property from an object inside a condition, check for null with optional chaining operator;
+
 ```
-git rebase develop
-```
+DON'T
+
+if (array != null && array.length){
+do stuff
+}
+
+
+//DO
+if (array?.length){
+do stuff
+}
