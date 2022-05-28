@@ -94,14 +94,40 @@ Each folder that has an exportable file/component will have an index file for ea
 12. When using a property from an object inside a condition, check for null with optional chaining operator;
 
 ```
-DON'T
+// DON'T
 
 if (array != null && array.length){
 do stuff
 }
 
 
-//DO
+// DO
 if (array?.length){
 do stuff
 }
+
+```
+  
+13. try to extract at the top of the function all constants such as strings, numbers, objects, instead of declaring this ad hoc inside the code.
+
+
+```
+// DON'T
+
+if (x === 'rejected' && y === 4){
+do stuff
+}
+
+
+// DO
+
+ enum permissionEnum {
+rejected = "rejected"
+}
+const accessLevel = 4;
+
+
+if (x === permissionsEnum.rejected && y === accessLevel){
+do stuff
+}
+```
